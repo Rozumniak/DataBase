@@ -53,8 +53,8 @@ public class Controller {
         });
 
         SignIn_button.setOnAction(event -> {
-            String login = login_field.getText().toString();
-            String password = password_field.getText().toString();
+            String login = login_field.getText().trim();
+            String password = password_field.getText().trim();
             DataBaseConnect dbConnect = new DataBaseConnect();
             User user = new User();
             user.setLogin(login);
@@ -65,11 +65,17 @@ public class Controller {
                 if (!result.next()) {
                     System.out.println("not login");
                 } else {
-                    System.out.println("Login");
-                }
-            } catch (SQLException e) {
+                        System.out.println("login");
+                        String firstname = result.getString(2);
+                        String lastname = result.getString(3);
+                        String patronymic = result.getString(4);
+                        System.out.println(firstname + " " + lastname + " " + patronymic);
+
+                    }
+                } catch (SQLException e) {
                 e.printStackTrace();
             }
+
         });
     }
 }

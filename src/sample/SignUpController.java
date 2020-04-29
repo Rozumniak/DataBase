@@ -2,6 +2,8 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,11 +73,30 @@ public class SignUpController {
             stage.show();
         } );
         SignUp.setOnAction(event -> {
-            signUpNewUser();
-    });
+            String login = Login.getText().trim();
+            DataBaseConnect dbConnect = new DataBaseConnect();
+            User user = new User();
+            user.setLogin(login);
+            ResultSet result = dbConnect.getLogin(user);
+            try {
+                if (!result.next()) {
+                    signUpNewUser();
+                } else {
+                    System.out.println("Пользователем с таким логином уже существует");
+                    String firstname = result.getString(2);
+                    String lastname = result.getString(3);
+                    String patronymic = result.getString(4);
+                    System.out.println(firstname + " " + lastname + " " + patronymic);
+
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        });
     }
-        private void signUpNewUser (){
-        DataBaseConnect DBConnect = new DataBaseConnect();
+        private void signUpNewUser () {
+            DataBaseConnect DBConnect = new DataBaseConnect();
 
             String login = Login.getText();
             String password = Password.getText();
@@ -97,5 +118,5 @@ public class SignUpController {
             DBConnect.signUpUser(user);
 
 
-    }
+        }
 }

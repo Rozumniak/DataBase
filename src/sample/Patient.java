@@ -7,7 +7,6 @@ public class Patient {
     private String birthdate;
     private String insurance;
     private String fDiagnose;
-    private String sDiagnose;
     private String anamnesis;
     private String diagnostics;
     private String treatment;
@@ -23,7 +22,6 @@ public class Patient {
         this.birthdate = birthdate;
         this.insurance = insurance;
         this.fDiagnose = fDiagnose;
-        this.sDiagnose = sDiagnose;
         this.anamnesis = anamnesis;
         this.diagnostics = diagnostics;
         this.treatment = treatment;
