@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #123133;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchPageController">
    <children>
-      <AnchorPane prefHeight="75.0" prefWidth="750.0" style="-fx-background-color: #008080;">
-         <children>
-            <Button fx:id="Exit" layoutX="650.0" layoutY="25.0" mnemonicParsing="false" text="Выход" />
-            <Button fx:id="AddPatient" layoutX="50.0" layoutY="25.0" mnemonicParsing="false" text="Добавить пациента" />
-         </children></AnchorPane>
-      <GridPane layoutY="75.0" prefHeight="375.0" prefWidth="750.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextField alignment="TOP_CENTER" disable="true" pickOnBounds="false" prefHeight="0.0" prefWidth="148.0" GridPane.columnIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <GridPane.margin>
-                  <Insets bottom="300.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextArea fx:id="patient_name" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
+      <Text fx:id="user_name" layoutX="38.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="274.9830722808838" />
    </children>
 </AnchorPane>

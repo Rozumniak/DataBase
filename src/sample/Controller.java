@@ -65,7 +65,18 @@ public class Controller {
                 if (!result.next()) {
                     System.out.println("not login");
                 } else {
-                        System.out.println("login");
+                    SignIn_button.getScene().getWindow().hide();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("PatientSignUp.fxml"));
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Parent root = loader.getRoot();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.show();
                         String firstname = result.getString(2);
                         String lastname = result.getString(3);
                         String patronymic = result.getString(4);

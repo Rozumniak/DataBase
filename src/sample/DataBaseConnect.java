@@ -91,24 +91,39 @@ public class DataBaseConnect extends Configs {
 
     }
     public ResultSet getLogin (User user)  {
-        ResultSet resultSet1 = null;
+        ResultSet resultSet = null;
         String select1 = "SELECT * FROM " + Const.USER_TABLE + " WHERE " +
                 Const.USER_LOGIN + " = ?";
         try {
 
             PreparedStatement prSt4 = getDBConnection().prepareStatement(select1);
             prSt4.setString(1, user.getLogin());
-            resultSet1 = prSt4.executeQuery();
+            resultSet = prSt4.executeQuery();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return resultSet1;
+        return resultSet;
 
     }
+        public ResultSet getUserName (User user){
+        ResultSet resultSet = null;
+        String getName = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_NAME + " = ?";
+            try {
+                PreparedStatement prSt5 = getDBConnection().prepareStatement(getName);
+                prSt5.setString(1, user.getLogin());
+                resultSet = prSt5.executeQuery();
+                } catch (SQLException e) {
+                e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                 e.printStackTrace();
+                }
 
+
+            return resultSet;
+    }
 
 }
 

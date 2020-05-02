@@ -98,11 +98,7 @@ public class SignUpController {
         private void signUpNewUser () {
             DataBaseConnect DBConnect = new DataBaseConnect();
 
-            String login = Login.getText();
-            String password = Password.getText();
-            String firstname = Firstname.getText();
-            String name = Name.getText();
-            String patronymic = Patronymic.getText();
+
             String post = "";
             if (Admin.isSelected())
                 post = "Admin";
@@ -113,7 +109,7 @@ public class SignUpController {
             else if (Registr.isSelected())
                 post = "Registrator";
 
-            User user = new User(firstname, name, patronymic, login, password, post);
+            User user = new User(Firstname.getText(), Name.getText(), Patronymic.getText(), Login.getText(), Password.getText(), post);
 
             DBConnect.signUpUser(user);
 

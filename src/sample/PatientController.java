@@ -88,20 +88,11 @@ public class PatientController {
     }
     private void signUpNewPatient(){
         DataBaseConnect DBConnect = new DataBaseConnect();
-        String firstname = FirstName.getText();
-        String name = Name.getText();
-        String patronymic = Patronymic.getText();
-        String birthdate = BirthDate.getText();
-        String insurance = Insurance.getText();
-        String Diagnose = FDiagnose.getText();
-        String anamnesis = Anamnesis.getText();
-        String diagnostics = Diagnostics.getText();
-        String treatment = Treatment.getText();
         String gender = "";
         if (Male.isSelected()) gender = "Male";
         else  if (Female.isSelected()) gender = "Female";
-        Patient patient = new Patient(firstname, name, patronymic, birthdate, insurance,
-                Diagnose, anamnesis, diagnostics, treatment, gender);
+        Patient patient = new Patient(FirstName.getText(), Name.getText(), Patronymic.getText(), BirthDate.getText(), Insurance.getText(),
+                FDiagnose.getText(), Anamnesis.getText(), Diagnostics.getText(), Treatment.getText(), gender);
         DBConnect.signUpPatient(patient);
     }
 

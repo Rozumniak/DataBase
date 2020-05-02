@@ -7,12 +7,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUpController">
    <children>
       <AnchorPane layoutY="77.0" prefHeight="375.0" prefWidth="750.0" style="-fx-background-color: #ffffff;">
          <children>
-            <RadioButton fx:id="admin" layoutX="408.0" layoutY="112.0" mnemonicParsing="false" text="Администратор">
+            <RadioButton fx:id="admin" layoutX="410.0" layoutY="114.0" mnemonicParsing="false" text="Администратор">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -32,7 +31,7 @@
             <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <RadioButton fx:id="doc" layoutX="410.0" layoutY="215.0" mnemonicParsing="false" text="Врач">
+      <RadioButton fx:id="doc" layoutX="410.0" layoutY="216.0" mnemonicParsing="false" text="Врач">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
