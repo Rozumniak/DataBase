@@ -68,10 +68,11 @@ public class PatientController {
 
     @FXML
     void initialize() {
+
         BackButton.setOnAction(event ->{
             BackButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Login.fxml"));
+            loader.setLocation(getClass().getResource("SearchPage.fxml"));
             try {
                 loader.load();
             } catch (IOException e) {

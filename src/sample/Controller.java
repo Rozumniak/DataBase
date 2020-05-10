@@ -6,8 +6,11 @@ import java.nio.file.Path;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,7 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Controller {
+public class Controller  {
 
     @FXML
     private ResourceBundle resources;
@@ -36,7 +39,8 @@ public class Controller {
     private Button SignIn_button;
 
     @FXML
-    void initialize() {
+     void initialize (){
+
         SignUpButton.setOnAction(event -> {
             SignUpButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
@@ -56,10 +60,11 @@ public class Controller {
             String login = login_field.getText().trim();
             String password = password_field.getText().trim();
             DataBaseConnect dbConnect = new DataBaseConnect();
-            User user = new User();
+                        User user = new User();
             user.setLogin(login);
             user.setPassword(password);
             ResultSet result = dbConnect.getUser(user);
+
 
             try {
                 if (!result.next()) {
@@ -67,27 +72,22 @@ public class Controller {
                 } else {
                     SignIn_button.getScene().getWindow().hide();
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("PatientSignUp.fxml"));
+                    loader.setLocation(getClass().getResource("SearchPage.fxml"));
                     try {
                         loader.load();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     Parent root = loader.getRoot();
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
+
                     stage.show();
-                        String firstname = result.getString(2);
-                        String lastname = result.getString(3);
-                        String patronymic = result.getString(4);
-                        System.out.println(firstname + " " + lastname + " " + patronymic);
-
-                    }
+                   }
                 } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                e.printStackTrace();}  });
 
-        });
     }
 }
 

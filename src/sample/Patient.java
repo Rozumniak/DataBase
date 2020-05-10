@@ -28,6 +28,9 @@ public class Patient {
         this.gender = gender;
     }
 
+    public Patient() {}
+
+
     public String getFirstname() {
         return firstname;
     }

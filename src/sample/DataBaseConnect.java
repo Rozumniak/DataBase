@@ -4,12 +4,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+
 public class DataBaseConnect extends Configs {
     Connection DBConnection;
 
     public Connection getDBConnection() throws ClassNotFoundException, SQLException {
-        String connectionString = "jdbc:mysql://" + dbHost + ":"
-                + dbPort + "/" + dbName;
+         String connectionString = "jdbc:mysql://" + dbHost + ":"
+               + dbPort + "/" + dbName;
         Class.forName("com.mysql.cj.jdbc.Driver");
         DBConnection = DriverManager.getConnection(connectionString, dbUser,
                 dbPass);
@@ -124,6 +125,24 @@ public class DataBaseConnect extends Configs {
 
             return resultSet;
     }
+    public ResultSet patientSearch (Patient patient){
+        ResultSet resSet = null;
+        String getPatientFirstname = "SELECT * FROM " + Const.PATIENT_TABLE + " WHERE " + Const.PATIENT_FIRSTNAME + " = ?";
+        PreparedStatement prSt6 = null;
+        try {
+            prSt6 = getDBConnection().prepareStatement(getPatientFirstname);
+            prSt6.setString(1, patient.getFirstname());
+            resSet = prSt6.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return resSet;
+    }
+
 
 }
 
